@@ -4,8 +4,8 @@ Config [f2fs_qemu_x86_64_defconfig](my_external_tree/configs/f2fs_qemu_x86_64_de
 
 ## Clone
 ```
-git clone --remote-submodules --recurse-submodules -j8 https://github.com/AndreiCherniaev/buildroot_f2fs_qemu_x86_64 .git
-cd buildroot_f2fs_qemu_x86_64 /
+git clone --remote-submodules --recurse-submodules -j8 https://github.com/AndreiCherniaev/buildroot_f2fs_qemu_x86_64.git
+cd buildroot_f2fs_qemu_x86_64
 ```
 ## Make image
 ```
@@ -35,7 +35,6 @@ make -C $PWD/buildroot/ linux-update-defconfig BR2_LINUX_KERNEL_CUSTOM_CONFIG_FI
 ## Start in QEMU
 This code is based on [emulation script](https://github.com/buildroot/buildroot/tree/master/board/qemu/x86_64), run the emulation with:
 ```
-cd buildroot
 qemu-system-x86_64 -M pc -drive file=../Buildroot.img,if=virtio,format=raw -net nic,model=virtio -net user
 ```
-Optionally add `-nographic` to see output not in extra screen but in console terminal. Or `-display curses` to pseudographic. 
+Note: image file `Buildroot.img` is located outside of repo folder so we use `../`. Optionally add `-nographic` to see output not in extra screen but in console terminal. Or `-display curses` to pseudographic. 
