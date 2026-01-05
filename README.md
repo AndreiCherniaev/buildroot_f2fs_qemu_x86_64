@@ -33,7 +33,7 @@ In case of Buildroot to save non-default Linux's .config to my_external_tree/boa
 make -C $PWD/buildroot/ linux-update-defconfig BR2_LINUX_KERNEL_CUSTOM_CONFIG_FILE=$PWD/my_external_tree/board/my_company/my_board/linux_f2fs.config
 ```
 ## Start in QEMU
-This code is based on [emulation script](https://github.com/buildroot/buildroot/tree/master/board/qemu/x86_64), run the emulation with:
+This code is based on [emulation script](https://github.com/buildroot/buildroot/tree/master/board/qemu/x86_64). To booting in BIOS mode, run the emulation with:
 ```
 qemu-system-x86_64 -M pc -drive file=../Buildroot.img,if=virtio,format=raw -net nic,model=virtio -net user
 ```
